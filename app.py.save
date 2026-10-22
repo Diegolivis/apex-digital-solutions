@@ -1,0 +1,38 @@
+mport tkinter as tk
+
+def calcular():
+    try:
+# Lee lo que escribiste en la caja de texto y hace el calculo automaticamente
+        operacion = entrada.get()
+        resultado = eval(operacion)
+        etiqueta_resultado.config(text=f"Resultado: {resultado}")
+     except Exception:
+        etiqueta_resultado.config(text="Error: Revisa la operacion")
+
+# Crear la ventana principal de la app
+ventana = tk.Tk()
+ventana.title("Mi primera App Calculadora")
+ventana.geometry("300x250")
+
+# Un titulo dentro de la ventana
+titulo = tk.Label(ventana, text="Calculadora", font=("Arial", 14, "bold"))
+titulo.pack(pady=10)
+
+# Una instruccion para el usuario
+instruccion = tk.Label(ventana, text="Escribe la operacion (ej: 45 * 45):")
+instruccion.pack()
+
+# Una caja de texto para ecsibir
+entrada = tk.Entry(ventana, font=("Arial", 12), justify="center")
+entrada.pack(pady=10)
+
+# Un boton que al presionarlo ejecuta la funcion 'calcular'
+boton = tk.Button(ventana, text="Calcular", font=("Arial",11), bg="lightgray", command=calcular)
+boton.pack(pady=5)
+
+# Una etiqueta para mostrar el resultado final
+etiqueta_resultado = tk.Label(ventana, text="Resultado: ", font=("Arial", 12, "bold"))
+etiqueta_resultado.pack(pady=15)
+
+# Mantener la ventana abierta
+ventana.mainloop()
